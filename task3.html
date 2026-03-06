@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Simple Portfolio</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+}
+
+/* Navbar */
+
+header{
+background:#333;
+color:white;
+text-align:center;
+padding:10px;
+position:fixed;
+width:100%;
+top:0;
+}
+
+nav a{
+color:white;
+margin:10px;
+text-decoration:none;
+}
+
+/* Hero */
+
+.hero{
+background:#00bcd4;
+color:white;
+text-align:center;
+padding:100px 20px;
+margin-top:60px;
+}
+
+/* Sections */
+
+section{
+padding:40px;
+text-align:center;
+}
+
+/* Contact form */
+
+input{
+padding:8px;
+margin:5px;
+}
+
+/* Dark mode */
+
+.dark{
+background:black;
+color:white;
+}
+
+button{
+padding:8px 15px;
+margin-top:10px;
+cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<header id="navbar">
+<h2>Himanshu Nama</h2>
+
+<nav>
+<a href="#">Home</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<button onclick="darkMode()">Dark Mode</button>
+
+</header>
+
+<div class="hero">
+<h1>Hello, I'm Himanshu</h1>
+<p>BCA Student | Beginner Web Developer</p>
+</div>
+
+<section id="about">
+<h2>About Me</h2>
+<p>I am learning web development and building simple websites.</p>
+</section>
+
+<section id="contact">
+<h2>Contact Me</h2>
+
+<form onsubmit="return checkForm()">
+
+<input type="text" id="name" placeholder="Name"><br>
+
+<input type="text" id="email" placeholder="Email"><br>
+
+<button type="submit">Send</button>
+
+</form>
+
+<p id="error" style="color:red;"></p>
+
+</section>
+
+<script>
+
+/* Navbar color change */
+
+window.onscroll=function(){
+
+let nav=document.getElementById("navbar")
+
+if(window.scrollY>50){
+nav.style.background="black"
+}
+else{
+nav.style.background="#333"
+}
+
+}
+
+/* Form validation */
+
+function checkForm(){
+
+let name=document.getElementById("name").value
+let email=document.getElementById("email").value
+
+if(name=="" || email==""){
+document.getElementById("error").innerText="Please fill all fields"
+return false
+}
+
+return true
+
+}
+
+/* Dark mode */
+
+function darkMode(){
+
+document.body.classList.toggle("dark")
+
+}
+
+</script>
+
+</body>
+</html>
